@@ -14,7 +14,7 @@ export const registroSlice = createSlice({
 })
 export const postRegistroThunk = (informacion) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.post('http://localhost:8080/usuario',informacion)
+    return axios.post('https://ropas-db.onrender.com/usuario',informacion)
         .then(() => dispatch(setRegistro()))
         .finally(() => dispatch(setIsLoading(false)));
 }

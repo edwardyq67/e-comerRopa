@@ -13,7 +13,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const submit = (data) => {
     axios
-      .post("http://localhost:8080/usuario/login", data)
+      .post("https://ropas-db.onrender.com/usuario/login", data)
       .then((res) => localStorage.setItem("token", res.data.token));
     navigate("/");
   };

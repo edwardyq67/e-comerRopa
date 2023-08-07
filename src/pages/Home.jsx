@@ -25,10 +25,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(getProducthunk());
     axios
-      .get("http://localhost:8080/ropa/versatil")
+      .get("https://ropas-db.onrender.com/ropa/versatil")
       .then((res) => setCategoriaName(res.data));
     axios
-      .get("http://localhost:8080/ropa/genero")
+      .get("https://ropas-db.onrender.com/ropa/genero")
       .then((res) => setCategoriaGenero(res.data));
   }, []);
 

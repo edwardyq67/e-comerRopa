@@ -17,7 +17,7 @@ const RopaDetail = () => {
   const ropaVersatil = useSelector((state) => state.homeSlice);
   const[contador,setContador]=useState(Number)
   useEffect(() => {
-    axios.get(`http://localhost:8080/ropas/${id}`).then((res) => {
+    axios.get(`https://ropas-db.onrender.com/ropas/${id}`).then((res) => {
       setDetails(res.data);
       dispatch(filterRopaVersatil(res.data.versatil.id));
     });

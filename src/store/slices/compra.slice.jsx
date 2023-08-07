@@ -15,7 +15,7 @@ export const compraSlice = createSlice({
 })
 export const CompraPostThunk = (gmail) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.post('http://localhost:8080/carritos/compras',gmail,getConfig())
+    return axios.post('https://ropas-db.onrender.com/carritos/compras',gmail,getConfig())
         .then(() => dispatch(setCompra()))
         .finally(() => dispatch(setIsLoading(false)));
 }

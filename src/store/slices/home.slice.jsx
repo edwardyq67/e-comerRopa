@@ -15,25 +15,25 @@ export const homeSlice = createSlice({
 })
 export const getProducthunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get('http://localhost:8080/ropas')
+    return axios.get('https://ropas-db.onrender.com/ropas')
         .then((res) => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const filterRopaVersatil = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`http://localhost:8080/ropas/?versatilId=${id}`)
+    return axios.get(`https://ropas-db.onrender.com/ropas/?versatilId=${id}`)
         .then(res => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const filterRopaGenero = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`http://localhost:8080/ropas/?generoId=${id}`)
+    return axios.get(`https://ropas-db.onrender.com/ropas/?generoId=${id}`)
         .then(res => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const colorThunk = (color) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`http://localhost:8080/ropas/?color=${color}`)
+    return axios.get(`https://ropas-db.onrender.com/ropas/?color=${color}`)
         .then((res) => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
