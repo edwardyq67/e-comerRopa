@@ -1,0 +1,10 @@
+.imgRopa{
+    width: 100vh;
+    height: 20em;
+}
+.App{
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    width: 90%;
+}
