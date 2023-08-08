@@ -58,7 +58,23 @@ const registros=(gmail)=>{
             </div>
           ))}
         </ListGroup>
+        <Form onSubmit={handleSubmit(registros)}>
+           <div>
+          <label htmlFor="gmail">tu correo de gmail</label>
+        <input type="text"id="gmail" {...register("email")}/>
+        </div>
         
+        
+        <Button
+          type="button"
+          style={{ width: "40%",margin:'15px 0 15px 100px' }}
+          className="btn btn-success"
+          onClick={registros}
+        >
+          
+          comprar
+        </Button>
+        </Form>
        
       </Col>
     </Row>
