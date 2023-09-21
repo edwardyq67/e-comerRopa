@@ -15,25 +15,31 @@ export const homeSlice = createSlice({
 })
 export const getProducthunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get('https://ropas-db.onrender.com/ropas')
+    return axios.get('https://api-ropa1-uwg9-dev.fl0.io/ropas')
+        .then((res) => dispatch(setHome(res.data)))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+export const getColorBuscar = (color) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.get(`https://api-ropa1-uwg9-dev.fl0.io/ropas?color=${color}`)
         .then((res) => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const filterRopaVersatil = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`https://ropas-db.onrender.com/ropas/?versatilId=${id}`)
+    return axios.get(`https://api-ropa1-uwg9-dev.fl0.io/ropas/?versatilId=${id}`)
         .then(res => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const filterRopaGenero = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`https://ropas-db.onrender.com/ropas/?generoId=${id}`)
+    return axios.get(`https://api-ropa1-uwg9-dev.fl0.io/ropas/?generoId=${id}`)
         .then(res => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const colorThunk = (color) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`https://ropas-db.onrender.com/ropas/?color=${color}`)
+    return axios.get(`https://api-ropa1-uwg9-dev.fl0.io/ropas/?color=${color}`)
         .then((res) => dispatch(setHome(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }

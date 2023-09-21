@@ -4,7 +4,7 @@ import {
   colorThunk,
   filterRopaGenero,
   filterRopaVersatil,
-  getProducthunk,
+  getColorBuscar,
 } from "../store/slices/home.slice";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -23,12 +23,12 @@ const Home = () => {
   const [color, setColor] = useState("");
   
   useEffect(() => {
-    dispatch(getProducthunk());
+    dispatch(getColorBuscar(color));
     axios
-      .get("https://ropas-db.onrender.com/ropa/versatil")
+      .get("https://api-ropa1-uwg9-dev.fl0.io/ropa/versatil")
       .then((res) => setCategoriaName(res.data));
     axios
-      .get("https://ropas-db.onrender.com/ropa/genero")
+      .get("https://api-ropa1-uwg9-dev.fl0.io/ropa/genero")
       .then((res) => setCategoriaGenero(res.data));
   }, []);
 
@@ -37,7 +37,7 @@ const Home = () => {
       <form style={{ width: "100vw" }} onSubmit={()=>dispatch(colorThunk(color))}>
         <InputGroup className="mb-3">
         <Form.Control
-          placeholder="color"
+          placeholder="azul,roja"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           value={color}

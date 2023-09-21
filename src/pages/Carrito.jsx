@@ -6,20 +6,17 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import {  Link } from "react-router-dom";
 import  Col  from "react-bootstrap/Col";
-import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import { CompraPostThunk } from "../store/slices/compra.slice";
 const Carrito = () => {
   const carrito = useSelector((state) => state.carritoSlice);
-  
+  const[gmail,setGmail]=useState('')
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCarrito());
   }, []);
-  const {register,handleSubmit}=useForm()
-const registros=(gmail)=>{
-  dispatch(CompraPostThunk(gmail))
-  console.log(gmail)
+const registros=()=>{
+dispatch(CompraPostThunk(gmail))  
 }
   return (
     <Row>
@@ -58,10 +55,13 @@ const registros=(gmail)=>{
             </div>
           ))}
         </ListGroup>
-        <Form onSubmit={handleSubmit(registros)}>
+        <Form onSubmit={()=>registros()}>
            <div>
           <label htmlFor="gmail">tu correo de gmail</label>
-        <input type="text"id="gmail" {...register("email")}/>
+        <input type="text"id="gmail" 
+        value={gmail}
+        onChange={e=>setGmail(e.target.value)}
+        />
         </div>
         
         
@@ -69,7 +69,7 @@ const registros=(gmail)=>{
           type="button"
           style={{ width: "40%",margin:'15px 0 15px 100px' }}
           className="btn btn-success"
-          onClick={registros}
+         onClick={()=>registros()}
         >
           
           comprar

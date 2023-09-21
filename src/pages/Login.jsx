@@ -13,9 +13,21 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const submit = (data) => {
     axios
-      .post("https://ropas-db.onrender.com/usuario/login", data)
-      .then((res) => localStorage.setItem("token", res.data.token));
-    navigate("/");
+      .post("https://api-ropa1-uwg9-dev.fl0.io/usuario/login", data)
+      .then((res) => {
+        if (res.data.token) {
+          
+          localStorage.setItem("token", res.data.token);
+          navigate("/");
+        } else {
+          
+          alert("El usuario no existe.");
+        }
+      })
+      .catch((error) => {
+        
+        console.error("Error al iniciar sesión:", error);
+      });
   };
   
   return (

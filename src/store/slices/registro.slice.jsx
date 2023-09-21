@@ -14,7 +14,7 @@ export const registroSlice = createSlice({
 })
 export const postRegistroThunk = (informacion) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.post('https://ropas-db.onrender.com/usuario',informacion)
+    return axios.post('https://api-ropa1-uwg9-dev.fl0.io/usuario',informacion)
         .then(() => dispatch(setRegistro()))
         .finally(() => dispatch(setIsLoading(false)));
 }

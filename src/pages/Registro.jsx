@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -12,9 +12,10 @@ const Registro = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate()
   const {register,handleSubmit}=useForm()
+  
 const submit=(informacion)=>{
-    dispatch(postRegistroThunk(informacion))
-    console.log(informacion)
+  dispatch(postRegistroThunk(informacion))
+  navigate('/login')
 }
   return (
     <Form onSubmit={handleSubmit(submit)}>
@@ -61,7 +62,7 @@ const submit=(informacion)=>{
         </Form.Group>
       </Row>
 
-      <Button onClick={()=>navigate('/login')}type="submit">REGISTRATE</Button>
+      <Button type="submit">REGISTRATE</Button>
     </Form>
   );
 };

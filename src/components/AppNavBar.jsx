@@ -33,17 +33,17 @@ const AppNavBar = () => {
               <Nav.Link as={Link} to="/">
                 Inicio
               </Nav.Link>
-              {token ? (
+              {!token ? (
+                <Nav.Link as={Link} to="/login">
+                  login
+                </Nav.Link>
+              ) : (
                 <>
                   <Nav.Link variant="primary" onClick={handleShow}>
                     carrito
                   </Nav.Link>
                   <Nav.Link onClick={logaut}>salir</Nav.Link>
                 </>
-              ) : (
-                <Nav.Link as={Link} to="/login">
-                  login
-                </Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>

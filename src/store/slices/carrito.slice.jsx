@@ -16,13 +16,13 @@ export const carritoSlice = createSlice({
 })
 export const getCarrito = () => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get('https://ropas-db.onrender.com/carrito',getConfig())
+    return axios.get('https://api-ropa1-uwg9-dev.fl0.io/carrito',getConfig())
         .then((res) => dispatch(setCarrito(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 export const thunkPostCarrito = (carrito) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.post('https://ropas-db.onrender.com/carrito',carrito,getConfig())
+    return axios.post('https://api-ropa1-uwg9-dev.fl0.io/carrito',carrito,getConfig())
         .then(() => dispatch(getCarrito()))
         .finally(() => dispatch(setIsLoading(false)));
 }
